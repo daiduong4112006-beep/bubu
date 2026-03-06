@@ -409,7 +409,7 @@ const WhySection = () => (
       <div className="grid md:grid-cols-3 gap-8">
         {[
           { icon: Palette, title: 'Thiết kế slide', desc: 'Mất nhiều thời gian nhưng slide vẫn rối mắt, chưa chuyên nghiệp.' },
-          { isStat: true, title: 'Khó chuyển đổi ý tưởng', desc: 'Hơn nửa số sinh viên trong lớp AI2107 gặp khó khăn khi chuyển các nội dung học thuật phức tạp thành câu chuyện trực quan.' },
+          { isStat: true, title: 'Nhu cầu cải thiện kỹ năng', desc: 'Hơn nửa số sinh viên trong lớp AI2107 gặp khó khăn khi “Viết – Thuyết trình – Làm bài” .' },
           { icon: Mic2, title: 'Trình bày tự tin', desc: 'Vượt qua nỗi sợ nói trước đám đông và rèn luyện phong thái chuyên nghiệp.' }
         ].map((item, idx) => (
           <motion.div 
