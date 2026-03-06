@@ -84,7 +84,7 @@ const SESSIONS: Session[] = [
     ],
     slideUrl: "https://drive.google.com/file/d/1WIsSE6LINfhqNvzCIcf5R5dfQrLGYcTJ/view",
     worksheetUrl: "https://drive.google.com/file/d/172SoLshi9ljas1hr8-c4z6Ob9BTDPH53/view?usp=sharing",
-    videoUrl: "https://www.youtube.com/embed/r54CNEYmCyw"
+    videoUrl: "https://www.youtube.com/embed/FeRoPNV8phg"
   },
   {
     id: '02',
@@ -116,7 +116,7 @@ const SESSIONS: Session[] = [
     ],
     slideUrl: "https://drive.google.com/file/d/1KlXiJkcyh3dHXU6E9e6uWd-f4hK_6NTF/view",
     worksheetUrl: "https://drive.google.com/file/d/1wcAFa_hU7gC3nfemEqXkQgpQheCe2IMD/view?usp=sharing",
-    videoUrl: "https://www.youtube.com/embed/epd9hJsPiGg"
+    videoUrl: "https://www.youtube.com/embed/BPeVwx3jy00"
   },
   {
     id: '03',
@@ -148,7 +148,7 @@ const SESSIONS: Session[] = [
     ],
     slideUrl: "https://drive.google.com/file/d/1xzeG7V1hzv-hTLarQwKRTCtnfm-QUuo-/view",
     worksheetUrl: "https://drive.google.com/file/d/1aeN0OqMUjZwgyt2-REEXgAywRXsAKPga/view?usp=sharing",
-    videoUrl: "https://www.youtube.com/embed/TuiDaVFdYB4"
+    videoUrl: "https://www.youtube.com/embed/v6fFpuv18dw"
   },
   {
     id: '04',
@@ -1128,14 +1128,24 @@ const SessionDetail = ({ sessionId, onBack, onNextSession }: { sessionId: string
             </button>
             <div className="flex gap-4">
               <button 
-                onClick={() => scrollToSection('video-player')}
+                onClick={() => {
+                  if (parseInt(session.id) > 1) {
+                    const prevId = (parseInt(session.id) - 1).toString().padStart(2, '0');
+                    onNextSession(prevId);
+                  }
+                  setTimeout(() => scrollToSection('video-player'), 100);
+                }}
                 className="px-8 py-3 rounded-lg border-2 border-orange-500 text-orange-500 font-bold hover:bg-orange-500 hover:text-white transition-all"
               >
-                Xem lại buổi học
+                {parseInt(session.id) > 1 ? 'Buổi học trước' : 'Xem lại buổi học'}
               </button>
               {parseInt(session.id) < 4 && (
                 <button 
-                  onClick={() => onNextSession((parseInt(session.id) + 1).toString().padStart(2, '0'))}
+                  onClick={() => {
+                    const nextId = (parseInt(session.id) + 1).toString().padStart(2, '0');
+                    onNextSession(nextId);
+                    setTimeout(() => scrollToSection('video-player'), 100);
+                  }}
                   className="px-8 py-3 rounded-lg bg-orange-500 text-white font-bold shadow-lg shadow-orange-500/20 hover:scale-105 transition-all"
                 >
                   Tiếp theo: {SESSIONS[parseInt(session.id)].title}
