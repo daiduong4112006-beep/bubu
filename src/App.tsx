@@ -178,7 +178,7 @@ const SESSIONS: Session[] = [
       { stt: 3, activity: "Tổng kết & định hướng cải thiện", performer: "Người dạy", duration: "5 phút" }
     ],
     slideUrl: "https://drive.google.com/file/d/1mJT8sGIfxNXGN2nnxy5EHq29hRIzFGf1/view",
-    videoUrl: "https://www.youtube.com/embed/sJt_i0hOugA"
+    videoUrl: "https://www.youtube.com/watch?v=UmbLgrD9LPw"
   }
 ];
 
